@@ -40,14 +40,15 @@ void swap(int size, int a, int b) { // 행 위치 변경
 	}
 }
 
-void gauss_jordan(double** matrix, int size) { // 가우스 조던 소거법
+void gauss_jordan(int size) { // 가우스 조던 소거법
+    int i, j, k;
     // 가우스 소거
-    for (int i = 0; i < size - 1; i++) {
+    for (i = 0; i < size - 1; i++) {
         // 행렬 대각선이 0일 경우 행 swap
         if (!matrix[i][i]) {                   
-            for (int j = i + 1; j < size; j++) 
+            for (j = i + 1; j < size; j++) 
                 if (matrix[j][i]) {
-                    swap(matrix, size, i, j);
+                    swap(size, i, j);
                     break;
                 }
             i--;
@@ -55,13 +56,13 @@ void gauss_jordan(double** matrix, int size) { // 가우스 조던 소거법
         } else {   
             double divide = matrix[i][i]; //연산을 하면서 i번째 계수가 바뀌므로 미리 저장해놓아야합니다
             
-            for (int j = 0; j < size + 1; j++)
+            for (j = 0; j < size + 1; j++)
                  matrix[i][j] *= (1 / divide); //i번째 행에 R(i)의 i번째 계수의 역수를 곱합니다
             
-            for (int j = i + 1; j < size; j++){
+            for (j = i + 1; j < size; j++){
                 double multiply = matrix[j][i]; //마찬가지로 matrix[j][i]도 연산을 하면서 값이 바뀌므로 미리 저장해놓아야합니다
                                                 //multiply가 필요한 이유: i번째 계수를 1로 만들기 위해
-                for (int k = 0; k < size + 1; k++)
+                for (k = 0; k < size + 1; k++)
                     matrix[j][k] -= (matrix[i][k] * multiply); //R(i)번째 행과 R(j)번째 행을 더합니다
                 
             }
@@ -69,15 +70,15 @@ void gauss_jordan(double** matrix, int size) { // 가우스 조던 소거법
     }
 
     double temp = matrix[size - 1][size - 1]; //마지막 행의 i번째 계수를 저장해놓습니다
-    for (int i = 0; i < size + 1; i++)
+    for (i = 0; i < size + 1; i++)
         matrix[size - 1][i] *= (1 / temp); //마지막 행에 i번째 계수의 역수만큼 곱합니다
      
 
     // 가우스 조던 소거
-    for (int i = size - 1; i > 0; i--) { // 거꾸로
-        for (int j = i - 1; j >= 0; j--) {
+    for (i = size - 1; i > 0; i--) { // 거꾸로
+        for (j = i - 1; j >= 0; j--) {
             double multiply = matrix[j][i]; //연산하면서 바뀌는 값이니 미리 저장
-            for (int k = i; k < size + 1; k++)
+            for (k = i; k < size + 1; k++)
                 matrix[j][k] -= (matrix[i][k] * multiply);
         }
     }
@@ -90,6 +91,6 @@ int main(void) {
 	scanf("%d", &size);
 	creatMatrix(size);
 	assignMatrix(size);
-    gauss_jordan(matrix, size);
+    gauss_jordan(size);
     printMatrix(size);
 }

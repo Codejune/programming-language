@@ -1,5 +1,2 @@
 ﻿  gaussjordan.c
-C:\Users\kbj97\OneDrive - 숭실대학교 - Soongsil University\프로그래밍언어\Assignment\C_GaussJordan\gaussjordan.c(48,32): warning C4047: '함수': 'int'의 간접 참조 수준이 'double **'과(와) 다릅니다.
-C:\Users\kbj97\OneDrive - 숭실대학교 - Soongsil University\프로그래밍언어\Assignment\C_GaussJordan\gaussjordan.c(48,32): warning C4024: 'swap': 형식 및 실제 매개 변수 1의 형식이 서로 다릅니다.
-C:\Users\kbj97\OneDrive - 숭실대학교 - Soongsil University\프로그래밍언어\Assignment\C_GaussJordan\gaussjordan.c(48,44): warning C4020: 'swap': 실제 매개 변수가 너무 많습니다.
   C_GaussJordan.vcxproj -> C:\Users\kbj97\OneDrive - 숭실대학교 - Soongsil University\프로그래밍언어\Assignment\C_GaussJordan\Debug\C_GaussJordan.exe
